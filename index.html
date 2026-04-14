@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Day for Desi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #fde4e4 100%);
+            min-height: 100vh;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .screen {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .active {
+            display: flex;
+            opacity: 1;
+            position: relative;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 45px 30px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.3);
+            max-width: 500px;
+            width: 100%;
+            z-index: 20;
+        }
+
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #e65c8a;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #d84374;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: 500;
+            text-align: justify;
+        }
+
+        .btn {
+            background: #e65c8a;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(230, 92, 138, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(230, 92, 138, 0.5);
+        }
+
+        .gallery-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 40px 0;
+            z-index: 20;
+        }
+        .polaroid {
+            background: #fff;
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            position: relative;
+            animation: popIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            opacity: 0;
+        }
+        .polaroid img { width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: 2px; }
+        .polaroid-text { 
+            font-family: 'Caveat', cursive; 
+            font-size: 26px; 
+            color: #444;
+            position: absolute; 
+            bottom: 12px; 
+            width: 100%; 
+            left: 0; 
+        }
+
+        @keyframes popIn { to { opacity: 1; transform: translateY(0) rotate(var(--rot)); } }
+
+        #flower-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="flower-container"></div>
+
+    <div id="step1" class="screen active">
+        <div class="card">
+            <h1>Halo, Desi! 💌</h1>
+            <p style="text-align: center;">Di hari yang spesial ini, aku ada sedikit kejutan buat kamu. Silakan dibuka ya...</p>
+            <button class="btn" onclick="startSurprise()">Buka Pesan ✨</button>
+        </div>
+    </div>
+
+    <div id="step2" class="screen">
+        <div class="card">
+            <h2>Happy 22nd Birthday!</h2>
+            <h3>Desi Lamria Sari Gultom</h3>
+            <p>
+                Selamat ulang tahun yang ke-22, Desi. Di umur yang baru ini, aku cuma mau bilang kalau aku bersyukur banget bisa kenal dan jadi tempat curhat kamu sampai sejauh ini. <br><br>
+                Makasih ya sudah selalu percaya buat berbagi cerita, mulai dari hal yang penting sampai hal-hal lucu nggak jelas yang sering kita bahas. Kehadiran kamu selalu bisa bikin suasana jadi beda dan lebih berwarna.<br><br>
+                Harapanku buat kamu di angka 22 ini simpel aja; semoga kamu selalu dikelilingi orang-orang baik, tetap jadi sosok yang tangguh, dan nggak pernah bosan buat ngejar apa yang kamu impikan. Kalau lelah, istirahat dulu, ceritain aja semua ke aku kayak biasanya.<br><br>
+                Selamat merayakan hari lahirmu. <i>Enjoy your special day,</i> Desi! ✨
+            </p>
+            <button class="btn" onclick="goToStep('step2', 'step3')">Lihat Momen Kita 📸</button>
+        </div>
+    </div>
+
+    <div id="step3" class="screen">
+        <h1 style="margin-bottom: 10px;">Favorite Captures ✨</h1>
+        <p style="text-align: center; margin-bottom: 30px;">Beberapa alasan kenapa hari-hariku jadi lebih seru.</p>
+        <div class="gallery-container">
+            <div class="polaroid" style="--rot: -2deg">
+                <img src="foto1.jpg" alt="Foto 1">
+                <div class="polaroid-text">Paling bisa bikin senyum! 😍</div>
+            </div>
+            <div class="polaroid" style="--rot: 3deg">
+                <img src="foto2.jpg" alt="Foto 2">
+                <div class="polaroid-text">Stay happy, Desi! ❤️</div>
+            </div>
+            <div class="polaroid" style="--rot: -1.5deg">
+                <img src="foto3.jpg" alt="Foto 3">
+                <div class="polaroid-text">HBD ke-22! 🎉</div>
+            </div>
+        </div>
+        <button class="btn" onclick="location.reload()" style="margin-bottom: 50px;">Ulangi Dari Awal ↻</button>
+    </div>
+
+    <script>
+        function startSurprise() {
+            createFlowers();
+            goToStep('step1', 'step2');
+        }
+
+        function goToStep(hideId, showId) {
+            const hideEl = document.getElementById(hideId);
+            const showEl = document.getElementById(showId);
+            
+            hideEl.style.opacity = 0;
+            setTimeout(() => {
+                hideEl.classList.remove('active');
+                hideEl.style.display = 'none';
+                
+                showEl.style.display = 'flex';
+                setTimeout(() => {
+                    showEl.classList.add('active');
+                    window.scrollTo(0, 0);
+                }, 50);
+            }, 600);
+        }
+
+        function createFlowers() {
+            const container = document.getElementById('flower-container');
+            const icons = ['🌸', '🌺', '🌷', '✨', '💖', '🍀'];
+            
+            setInterval(() => {
+                const flower = document.createElement('div');
+                flower.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                flower.style.position = 'absolute';
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.top = '-5vh';
+                flower.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                flower.style.animation = `fall ${Math.random() * 3 + 4}s linear forwards`;
+                
+                container.appendChild(flower);
+                setTimeout(() => flower.remove(), 7000);
+            }, 250);
+        }
+    </script>
+</body>
+</html>
